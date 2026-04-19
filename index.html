@@ -18,91 +18,84 @@
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: #333; background-color: #fff; }
         
-        /* Header */
+        /* Header Tənzimləmələri */
         header { 
             display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 5%; background: white; position: sticky; top: 0;
+            padding: 5px 5%; background: white; position: sticky; top: 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
+            min-height: 60px;
         }
         
-       /* Loqonun yeni və yığcam ölçüsü */
+        /* Loqo Ölçülərinin Qəti Tənzimlənməsi */
         .logo-container {
             display: flex;
             align-items: center;
-            height: 50px; /* Hündürlüyü bir az azaltdıq ki, səhifəni tutmasın */
-            padding: 5px 0;
+            max-width: 180px; /* Eni çox uzanmasın */
         }
         .logo-container img { 
-            height: 100%; /* Konteynerin hündürlüyünə (50px) uyğunlaşır */
+            max-height: 45px; /* Loqonun hündürlüyünü bura limitlədik */
             width: auto; 
             display: block; 
             object-fit: contain;
-            transition: 0.3s;
+            transition: transform 0.3s ease;
         }
-        
-        /* Loqoya toxunanda kiçik bir effekt */
-        .logo-container img:hover {
-            transform: scale(1.05);
-        }
-      
-        /* Hero Bölməsi */
+        .logo-container img:hover { transform: scale(1.05); }
+
+        nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; font-size: 0.9rem; }
+        nav a:hover { color: var(--orange); }
+
+        /* Hero */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200');
             background-size: cover; background-position: center;
-            padding: 100px 20px; text-align: center; color: white;
+            padding: 80px 20px; text-align: center; color: white;
         }
-        .hero h1 { font-size: 2.5rem; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 2.2rem; margin: 0; }
 
-        /* Məhsullar Grid */
-        .section-title { text-align: center; margin-top: 50px; font-size: 2rem; color: var(--dark); }
+        /* Elanlar Grid */
+        .section-title { text-align: center; margin-top: 40px; font-size: 1.8rem; }
         .product-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; padding: 40px 5%; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 20px; padding: 30px 5%; 
         }
         .product-card { 
-            border: 1px solid #eee; border-radius: 15px; text-align: center; 
-            background: white; overflow: hidden; transition: 0.3s ease; 
+            border: 1px solid #eee; border-radius: 12px; text-align: center; 
+            background: white; overflow: hidden; transition: 0.3s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
-        .product-card img { width: 100%; height: 220px; object-fit: cover; }
-        .product-info { padding: 20px; }
-        .price { color: var(--orange); font-weight: bold; font-size: 1.3em; display: block; margin-bottom: 15px; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
+        .product-info { padding: 15px; }
+        .price { color: var(--orange); font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 10px; }
 
-        /* Elan Yerləşdir Bölməsi */
-        .ad-post-section { background: var(--lightgray); padding: 60px 5%; text-align: center; }
-        .ad-card {
-            max-width: 700px; margin: 0 auto; background: white; padding: 30px;
-            border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        /* Elan Yerləşdir */
+        .ad-post-section { background: var(--lightgray); padding: 50px 5%; text-align: center; }
+        .ad-card { max-width: 600px; margin: 0 auto; background: white; padding: 25px; border-radius: 15px; }
 
         /* Düymələr */
-        .social-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
         .social-btn { 
-            padding: 12px 25px; border-radius: 30px; color: white; 
-            text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px;
-            transition: 0.3s;
+            padding: 10px 20px; border-radius: 25px; color: white; 
+            text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;
         }
-        .ig { background: var(--instagram); }
-        .tk { background: var(--tiktok); }
         .wa { background: var(--whatsapp); }
 
-        /* Üzən WhatsApp düyməsi */
+        /* WhatsApp Sabit */
         .fixed-whatsapp {
-            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; 
+            position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px; 
             background-color: var(--whatsapp); color: white; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center;
-            font-size: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000;
-            text-decoration: none;
+            display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000;
         }
 
-        footer { background: var(--dark); color: white; padding: 40px 5%; text-align: center; }
+        footer { background: var(--dark); color: white; padding: 30px 5%; text-align: center; }
 
+        /* Mobil Adaptasiya */
         @media (max-width: 600px) {
-            header { flex-direction: column; gap: 15px; height: auto; padding: 15px 5%; }
-            .logo-container { height: 60px; }
-            nav a { margin: 0 10px; font-size: 0.9rem; }
+            header { flex-direction: column; padding: 10px; text-align: center; }
+            .logo-container { margin-bottom: 10px; justify-content: center; width: 100%; }
+            .logo-container img { max-height: 35px; } /* Mobildə loqo daha da kiçilir */
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            nav a { margin: 0 5px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -111,7 +104,7 @@
 <header>
     <div class="logo-container">
         <a href="#home">
-            <img src="logo.png" alt="Remarket AZ Loqo" onerror="this.src='https://imagizer.imageshack.com/img922/5753/r3b7Vf.png'">
+            <img src="logo.png" alt="Remarket AZ" onerror="this.src='https://imagizer.imageshack.com/img922/5753/r3b7Vf.png'">
         </a>
     </div>
     <nav>
@@ -124,12 +117,8 @@
 
 <section class="hero" id="home">
     <h1>Remarket AZ-a Xoş Gəlmisiniz</h1>
-    <p>Sərfəli qiymət, yoxlanılmış məhsullar və etibarlı alış-veriş.</p>
-    <div class="social-buttons">
-        <a href="https://wa.me/994506667508" class="social-btn wa">
-            <i class="fab fa-whatsapp"></i> Bizə Yazın
-        </a>
-    </div>
+    <p>Sərfəli qiymət, etibarlı alış-veriş.</p>
+    <a href="https://wa.me/994506667508" class="social-btn wa"><i class="fab fa-whatsapp"></i> Bizə Yazın</a>
 </section>
 
 <h2 class="section-title" id="products">Son Elanlar</h2>
@@ -137,49 +126,23 @@
     <div class="product-card">
         <img src="https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=500" alt="iPhone 13">
         <div class="product-info">
-            <h3>iPhone 13 Pro (128GB)</h3>
-            <p>Vəziyyət: Yeni kimi, qutusu var.</p>
+            <h3>iPhone 13 Pro</h3>
             <span class="price">₼ 1250</span>
-            <a href="https://wa.me/994506667508?text=iPhone%2013%20Pro%20elan%20üçün%20yazıram" class="social-btn wa" style="justify-content: center;">Sifariş Et</a>
+            <a href="https://wa.me/994506667508" class="social-btn wa">Sifariş Et</a>
         </div>
     </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500" alt="Nike Sneakers">
-        <div class="product-info">
-            <h3>Nike Air Max (Orijinal)</h3>
-            <p>Vəziyyət: Yeni, 42 ölçü.</p>
-            <span class="price">₼ 185</span>
-            <a href="https://wa.me/994506667508?text=Nike%20Air%20Max%20elan%20üçün%20yazıram" class="social-btn wa" style="justify-content: center;">Sifariş Et</a>
-        </div>
     </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=500" alt="Laptop">
-        <div class="product-info">
-            <h3>HP Victus Gaming Laptop</h3>
-            <p>Vəziyyət: 6 ay zəmanətli.</p>
-            <span class="price">₼ 1600</span>
-            <a href="https://wa.me/994506667508?text=Laptop%20elan%20üçün%20yazıram" class="social-btn wa" style="justify-content: center;">Sifariş Et</a>
-        </div>
-    </div>
-</div>
 
 <section class="ad-post-section" id="post-ad">
     <div class="ad-card">
-        <i class="fas fa-bullhorn" style="font-size: 3rem; color: var(--blue);"></i>
-        <h2>Öz məhsulunu satmaq istəyirsən?</h2>
-        <p>Məhsulun şəklini, qiymətini və qısa məlumatını bizə göndər, sənin üçün reklam edək!</p>
-        <div class="social-buttons">
-            <a href="https://wa.me/994506667508?text=Salam!%20Yeni%20elan%20yerləşdirmək%20istəyirəm." class="social-btn wa">
-                <i class="fab fa-whatsapp"></i> Elan Yerləşdir
-            </a>
-        </div>
+        <h2>Siz də satın!</h2>
+        <p>Məhsulunuzu bizə göndərin, dərhal elan yerləşdirək.</p>
+        <a href="https://wa.me/994506667508" class="social-btn wa">WhatsApp ilə Göndər</a>
     </div>
 </section>
 
 <footer>
-    <div class="footer-socials" style="font-size: 24px; margin-bottom: 15px;">
+    <div style="font-size: 20px; margin-bottom: 10px;">
         <a href="https://www.instagram.com/remarket_aze/" target="_blank" style="color:white; margin:0 10px;"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@remarket_aze" target="_blank" style="color:white; margin:0 10px;"><i class="fab fa-tiktok"></i></a>
     </div>
