@@ -25,11 +25,17 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;
         }
         
+        /* Loqonun ölçüsü və görünüşü - Yeni Peşəkar Loqo üçün Optimizasiya */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 70px; /* Sabit hündürlük */
+        }
         .logo-container img { 
-            height: 65px; 
+            height: 100%; /* Hündürlüyə uyğunlaşdırır */
             width: auto; 
             display: block; 
-            object-fit: contain;
+            object-fit: contain; /* Şəkli sıxmadan yerləşdirir */
         }
 
         nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
@@ -92,7 +98,8 @@
         footer { background: var(--dark); color: white; padding: 40px 5%; text-align: center; }
 
         @media (max-width: 600px) {
-            header { flex-direction: column; gap: 15px; }
+            header { flex-direction: column; gap: 15px; height: auto; padding: 15px 5%; }
+            .logo-container { height: 60px; }
             nav a { margin: 0 10px; font-size: 0.9rem; }
         }
     </style>
@@ -102,7 +109,7 @@
 <header>
     <div class="logo-container">
         <a href="#home">
-            <img src="https://ramilshirinov.github.io/site/logo.jpg" alt="Remarket AZ Logo" onerror="this.src='logo.jpg'">
+            <img src="https://imagizer.imageshack.com/img922/5753/r3b7Vf.png" alt="Remarket AZ Peşəkar Loqo">
         </a>
     </div>
     <nav>
