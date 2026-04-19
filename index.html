@@ -55,7 +55,35 @@
         .footer-socials { font-size: 24px; margin-bottom: 15px; }
         .footer-socials a { color: white; margin: 0 15px; transition: 0.3s; }
         .footer-socials a:hover { color: var(--orange); }
-    </style>
+   nav a {
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  nav a:hover {
+    color: var(--orange) !important;
+  }
+  nav a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+  }
+  nav a:hover::after {
+    width: 100%;
+  }
+ .product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: var(--orange);
+  }</style>
 </head>
 <body>
 
@@ -83,6 +111,11 @@
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </div>
+<div style="margin-top: 20px; font-size: 24px;">
+      <a href="https://www.instagram.com/remarket_aze/" target="_blank" style="margin-right: 15px; color: #E1306C;"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@remarket_aze" target="_blank" style="color: #000;"><i class="fab fa-tiktok"></i></a>
+  </div>
+
 </section>
 
 <section id="products">
@@ -115,6 +148,11 @@
     </div>
     <p>&copy; 2024 Remarket AZ. Bütün hüquqlar qorunur. <br> Sumqayıt / Bakı</p>
 </footer>
+<a href="https://wa.me/994501234567" 
+   style="position:fixed; width:60px; height:60px; bottom:40px; right:40px; background-color:#25d366; color:#FFF; border-radius:50px; text-align:center; font-size:30px; box-shadow: 2px 2px 3px #999; z-index:1000;" 
+   target="_blank">
+   <i class="fab fa-whatsapp" style="margin-top:16px;"></i>
+</a>
 
 </body>
 </html>
