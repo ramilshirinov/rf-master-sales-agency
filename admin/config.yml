@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: ramilshirinov/remarket-site # Bura GitHub URL-dəki adları yaz
   branch: main
 
