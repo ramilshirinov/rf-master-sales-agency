@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/admin/*"
+  status = 200
+
+[build]
+  publish = "/"
