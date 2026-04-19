@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="az">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remarket AZ - Elanlar və Alqı-Satqı</title>
@@ -98,6 +98,8 @@
             nav a { margin: 0 5px; font-size: 0.8rem; }
         }
     </style>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 </head>
 <body>
 
@@ -152,6 +154,19 @@
 <a href="https://wa.me/994506667508" class="fixed-whatsapp" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
+<script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+</body>
+</html>
 
 </body>
 </html>
