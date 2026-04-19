@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: RAMILSHIRINOV/remarket-site # Bura öz istifadəçi adını və repo adını yaz
+  branch: main
+
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: "products"
+    label: "Məhsullar"
+    folder: "content/products"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - { label: "Məhsulun Adı", name: "title", widget: "string" }
+      - { label: "Qiymət", name: "price", widget: "string" }
+      - { label: "Şəkil", name: "image", widget: "image" }
+      - { label: "Məlumat", name: "body", widget: "markdown" }
