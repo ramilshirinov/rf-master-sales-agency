@@ -18,11 +18,34 @@
         
         header { 
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: white; position: sticky; top: 0;
+            padding: 10px 5%; background: white; position: sticky; top: 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000;
         }
-        nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; transition: 0.3s; }
-        nav a:hover { color: var(--orange); }
+
+        /* Loqo Tənzimləmələri */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .site-logo {
+            height: 60px; /* Loqonun hündürlüyü */
+            width: auto;
+            display: block;
+        }
+
+        nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: bold; transition: 0.3s; position: relative; }
+        nav a:hover { color: var(--orange) !important; }
+        nav a::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transition: 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
 
         .hero { 
             background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
@@ -30,7 +53,6 @@
             background-size: cover; padding: 100px 20px; text-align: center;
         }
 
-        /* Sosial Media Düymələri */
         .social-buttons { margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .social-btn { 
             padding: 10px 20px; border-radius: 5px; color: white; 
@@ -46,7 +68,17 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: 20px; padding: 40px 5%; 
         }
-        .product-card { border: 1px solid #ddd; padding: 15px; border-radius: 10px; text-align: center; background: white; }
+        .product-card { 
+            border: 1px solid #ddd; padding: 15px; border-radius: 10px; 
+            text-align: center; background: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--orange);
+        }
         .product-card img { max-width: 100%; border-radius: 5px; }
         
         section { padding: 60px 5%; text-align: center; }
@@ -55,40 +87,36 @@
         .footer-socials { font-size: 24px; margin-bottom: 15px; }
         .footer-socials a { color: white; margin: 0 15px; transition: 0.3s; }
         .footer-socials a:hover { color: var(--orange); }
-   nav a {
-    transition: color 0.3s ease;
-    position: relative;
-  }
-  nav a:hover {
-    color: var(--orange) !important;
-  }
-  nav a::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background: var(--orange);
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transition: 0.3s;
-  }
-  nav a:hover::after {
-    width: 100%;
-  }
- .product-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-color: var(--orange);
-  }</style>
+
+        /* Üzən WhatsApp Düyməsi */
+        .fixed-whatsapp {
+            position: fixed; 
+            width: 60px; 
+            height: 60px; 
+            bottom: 40px; 
+            right: 40px; 
+            background-color: #25d366; 
+            color: #FFF; 
+            border-radius: 50px; 
+            text-align: center; 
+            font-size: 30px; 
+            box-shadow: 2px 2px 3px #999; 
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <h2 style="color: var(--orange); margin: 0;">Remarket AZ</h2>
+    <div class="logo-container">
+        <a href="#home">
+            <img src="şklloqo.jpeg" alt="Remarket AZ Logo" class="site-logo">
+        </a>
+    </div>
     <nav>
         <a href="#home">Əsas</a>
         <a href="#products">Məhsullar</a>
@@ -111,11 +139,10 @@
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </div>
-<div style="margin-top: 20px; font-size: 24px;">
-      <a href="https://www.instagram.com/remarket_aze/" target="_blank" style="margin-right: 15px; color: #E1306C;"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@remarket_aze" target="_blank" style="color: #000;"><i class="fab fa-tiktok"></i></a>
-  </div>
-
+    <div style="margin-top: 20px; font-size: 24px;">
+        <a href="https://www.instagram.com/remarket_aze/" target="_blank" style="margin-right: 15px; color: #E1306C;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@remarket_aze" target="_blank" style="color: #000;"><i class="fab fa-tiktok"></i></a>
+    </div>
 </section>
 
 <section id="products">
@@ -128,7 +155,7 @@
             <p style="font-weight: bold; color: var(--orange); font-size: 1.2em;">₼ 1250</p>
             <a href="https://wa.me/994506667508" class="social-btn wa" style="justify-content: center;">Sifariş Et</a>
         </div>
-        </div>
+    </div>
 </section>
 
 <section id="contact" style="background: var(--lightgray);">
@@ -148,10 +175,9 @@
     </div>
     <p>&copy; 2024 Remarket AZ. Bütün hüquqlar qorunur. <br> Sumqayıt / Bakı</p>
 </footer>
-<a href="https://wa.me/994501234567" 
-   style="position:fixed; width:60px; height:60px; bottom:40px; right:40px; background-color:#25d366; color:#FFF; border-radius:50px; text-align:center; font-size:30px; box-shadow: 2px 2px 3px #999; z-index:1000;" 
-   target="_blank">
-   <i class="fab fa-whatsapp" style="margin-top:16px;"></i>
+
+<a href="https://wa.me/994506667508" class="fixed-whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
 </a>
 
 </body>
