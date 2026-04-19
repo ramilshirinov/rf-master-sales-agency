@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ramilshirinov/remarket-site # Bura öz istifadəçi adını və repo adını yaz
+  repo: ramilshirinov/remarket-site # Bura GitHub URL-dəki adları yaz
   branch: main
 
 media_folder: "images"
