@@ -1,120 +1,27 @@
 <!DOCTYPE html>
 <html lang="az">
-<head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RF Master Sales Agency</title>
-
-    <style>
-        body {margin:0; font-family:Arial; background:#fff;}
-        header {
-            display:flex; justify-content:space-between;
-            padding:15px 5%; background:#111; color:white;
-        }
-        nav a {color:white; margin-left:15px; text-decoration:none;}
-
-        .hero {
-            background:#111; color:white;
-            text-align:center; padding:80px 20px;
-        }
-        .hero h1 {color:gold;}
-
-        .btn {
-            display:inline-block; margin-top:20px;
-            padding:12px 25px; background:gold;
-            color:black; text-decoration:none;
-            border-radius:25px;
-        }
-
-        .section {padding:50px 5%; text-align:center;}
-
-        .card {
-            border:1px solid #ddd;
-            padding:20px; margin:10px;
-            border-radius:10px;
-        }
-
-        .grid {
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-        }
-
-        footer {
-            background:#111; color:white;
-            text-align:center; padding:30px;
-        }
-    </style>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RF Master Admin Panel</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-
 <body>
-
-<header>
-    <h2>RF Master</h2>
-    <nav>
-        <a href="#">Əsas</a>
-        <a href="#about">Haqqımızda</a>
-        <a href="https://wa.me/994506667508">Əlaqə</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>RF Master Sales Agency</h1>
-    <p>Biz məhsul yox, satış edirik!</p>
-
-    <p>
-        Məhsulunuz var, amma sata bilmirsiniz?  
-        Biz sizin yerinizə satırıq.
-    </p>
-
-    <a href="https://wa.me/994506667508" class="btn">
-        Məhsulunu Satdır
-    </a>
-</section>
-
-<section class="section">
-    <h2>Biz nə edirik?</h2>
-
-    <p>
-        Biz satış xidmətini təqdim edirik.  
-        Şirkətlər və fərdi şəxslər üçün məhsulların satışını təşkil edirik.
-    </p>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Müştəri Tapırıq</h3>
-            <p>Məhsulunuza uyğun alıcı tapırıq</p>
-        </div>
-
-        <div class="card">
-            <h3>Satışı Bağlayırıq</h3>
-            <p>Danışıq və satış prosesi bizdədir</p>
-        </div>
-
-        <div class="card">
-            <h3>Komissiya ilə işləyirik</h3>
-            <p>Satış olduqda qazanırıq</p>
-        </div>
-    </div>
-</section>
-
-<section class="section" id="about">
-    <h2>Haqqımızda</h2>
-
-    <p>
-        RF Master Sales Agency satış xidmətləri üzrə fəaliyyət göstərən platformadır.
-        Biz məhsul sahiblərinə satışda kömək edir və onların məhsullarını daha geniş auditoriyaya çatdırırıq.
-    </p>
-
-    <p>
-        Kiçik və ya böyük fərq etməz — hər satış bizim üçün önəmlidir.
-    </p>
-</section>
-
-<footer>
-    <p>© RF Master Sales Agency</p>
-    <p>Sumqayıt / Bakı</p>
-</footer>
-
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+      window.netlifyIdentity.on("logout", () => {
+        document.location.href = "/";
+      });
+    }
+  </script>
 </body>
 </html>
