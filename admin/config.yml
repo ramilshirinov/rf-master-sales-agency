@@ -3,7 +3,7 @@ backend:
   repo: ramilshirinov/rf-master-sales-agency
   branch: main
 
-media_folder: "assets/images" # Şəkillərin yüklənəcəyi yer
+media_folder: "assets/images"
 public_folder: "/assets/images"
 
 collections:
@@ -13,7 +13,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Başlıq", name: "title", widget: "string" }
-      - { label: "Qiymət", name: "price", widget: "string" }
-      - { label: "Şəkil", name: "image", widget: "image" }
-      - { label: "Mətn", name: "body", widget: "markdown" }
+      - { label: "Məhsulun Adı", name: "title", widget: "string" }
+      - { label: "Qiymət (₼)", name: "price", widget: "string" }
+      - { label: "Məhsulun Şəkli (Link)", name: "image", widget: "string", default: "https://via.placeholder.com/500" }
+      - { label: "Haqqında Məlumat", name: "body", widget: "markdown" }
