@@ -1,28 +1,19 @@
 backend:
   name: github
-  repo: ramilshirinov/rf-master-sales-agency # Sizin yeni repo adınız
-  branch: main # Və ya istifadə etdiyiniz branch adı (adətən main olur)
+  repo: ramilshirinov/rf-master-sales-agency
+  branch: main
 
-  
-media_folder: "images"
-public_folder: "images"
-
-# Admin Panelin görünüş tənzimləmələri
-site_url: https://rfmaster.netlify.app # Bura öz Netlify linkini qoya bilərsən
-display_url: https://rfmaster.netlify.app
-logo_url: https://rfmaster.netlify.app/logo.png # Paneldə loqonuzun görünməsi üçün
+media_folder: "assets/images" # Şəkillərin yüklənəcəyi yer
+public_folder: "/assets/images"
 
 collections:
   - name: "products"
-    label: "Aktiv Satışlar (Məhsullar)"
-    label_singular: "Məhsul"
+    label: "Məhsullar"
     folder: "content/products"
     create: true
-    # Məhsul linklərini daha təmiz edir: master-perfume-01 kimi
-    slug: "rf-{{day}}-{{month}}-{{title}}" 
+    slug: "{{slug}}"
     fields:
-      - { label: "Məhsulun Tam Adı", name: "title", widget: "string", hint: "Məsələn: Creed Aventus Premium" }
-      - { label: "Satış Qiyməti (₼)", name: "price", widget: "string", hint: "Rəqəmlə qeyd edin" }
-      - { label: "Məhsul Şəkli", name: "image", widget: "image" }
-      - { label: "Məhsul Haqqında Detallar", name: "body", widget: "markdown", hint: "Müştərinin bilməli olduğu özəlliklər" }
-      - { label: "Status", name: "status", widget: "select", options: ["Stokda var", "Sifarişlə", "Bitib"], default: "Stokda var" }
+      - { label: "Başlıq", name: "title", widget: "string" }
+      - { label: "Qiymət", name: "price", widget: "string" }
+      - { label: "Şəkil", name: "image", widget: "image" }
+      - { label: "Mətn", name: "body", widget: "markdown" }
