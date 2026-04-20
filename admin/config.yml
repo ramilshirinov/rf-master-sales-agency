@@ -1,8 +1,9 @@
 backend:
-  name: git-gateway
-  repo: ramilshirinov/remarket-site
-  branch: main
+  name: github
+  repo: ramilshirinov/rf-master-sales-agency # Sizin yeni repo adınız
+  branch: main # Və ya istifadə etdiyiniz branch adı (adətən main olur)
 
+  
 media_folder: "images"
 public_folder: "images"
 
