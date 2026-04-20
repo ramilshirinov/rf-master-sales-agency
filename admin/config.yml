@@ -1,19 +1,27 @@
 backend:
   name: git-gateway
-  repo: ramilshirinov/remarket-site # Bura GitHub URL-dəki adları yaz
+  repo: ramilshirinov/remarket-site
   branch: main
 
 media_folder: "images"
 public_folder: "images"
 
+# Admin Panelin görünüş tənzimləmələri
+site_url: https://rfmaster.netlify.app # Bura öz Netlify linkini qoya bilərsən
+display_url: https://rfmaster.netlify.app
+logo_url: https://rfmaster.netlify.app/logo.png # Paneldə loqonuzun görünməsi üçün
+
 collections:
   - name: "products"
-    label: "Məhsullar"
+    label: "Aktiv Satışlar (Məhsullar)"
+    label_singular: "Məhsul"
     folder: "content/products"
     create: true
-    slug: "{{title}}"
+    # Məhsul linklərini daha təmiz edir: master-perfume-01 kimi
+    slug: "rf-{{day}}-{{month}}-{{title}}" 
     fields:
-      - { label: "Məhsulun Adı", name: "title", widget: "string" }
-      - { label: "Qiymət", name: "price", widget: "string" }
-      - { label: "Şəkil", name: "image", widget: "image" }
-      - { label: "Məlumat", name: "body", widget: "markdown" }
+      - { label: "Məhsulun Tam Adı", name: "title", widget: "string", hint: "Məsələn: Creed Aventus Premium" }
+      - { label: "Satış Qiyməti (₼)", name: "price", widget: "string", hint: "Rəqəmlə qeyd edin" }
+      - { label: "Məhsul Şəkli", name: "image", widget: "image" }
+      - { label: "Məhsul Haqqında Detallar", name: "body", widget: "markdown", hint: "Müştərinin bilməli olduğu özəlliklər" }
+      - { label: "Status", name: "status", widget: "select", options: ["Stokda var", "Sifarişlə", "Bitib"], default: "Stokda var" }
