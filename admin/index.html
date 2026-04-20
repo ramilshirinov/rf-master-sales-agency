@@ -1,25 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="az">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Remarket AZ - Admin Panel</title>
+  <title>RF Master Admin | Panel</title>
+  <link rel="icon" type="image/png" href="/logo.png">
+  
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.1.0/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
-    // Giriş (login) olanda səhifəni avtomatik yeniləyib paneli açmaq üçün:
+    // Giriş (login) tənzimləmələri
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
+            // Giriş uğurludursa, səhifəni yeniləyib paneli açırıq
             document.location.href = "/admin/";
           });
         }
       });
+
+      // Çıxış (logout) olanda ana səhifəyə göndərsin
+      window.netlifyIdentity.on("logout", () => {
+        document.location.href = "/";
+      });
     }
+
+    // CMS yükləndikdən sonra başlığı və loqonu vizual tənzimləmək üçün (opsional)
+    CMS.registerPreviewStyle("/style.css");
   </script>
+
+  <style>
+    /* Admin panelin giriş pəncərəsini brend rənglərinə uyğunlaşdıraq */
+    #nc-root [class*="nc-app-header-brand"] {
+      color: #d4af37 !important; /* Qızılı rəng */
+    }
+  </style>
 </body>
 </html>
