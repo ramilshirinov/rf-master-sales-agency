@@ -31,27 +31,32 @@
         nav a { margin-left: 20px; text-decoration: none; color: var(--dark-gray); font-weight: 600; transition: 0.3s; font-size: 0.85rem; text-transform: uppercase; }
         nav a:hover { color: var(--gold); }
 
-        /* HERO BÖLMƏSİ - YENİ LOQO ÖLÇÜLƏRİ İLƏ */
-   .hero { 
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+        /* HERO BÖLMƏSİ */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
                         url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200');
             background-size: cover; background-position: center;
-            padding: 100px 20px; /* Boşluğu bir az artırdım ki, daha möhtəşəm görünsün */
+            padding: 120px 20px; 
             text-align: center; color: white;
             display: flex; flex-direction: column; align-items: center;
+            overflow: hidden; /* Böyüdülmüş loqonun kənara çıxmaması üçün */
         }
 
-        /* Ölçüləri daha da böyütdüm: En 220px, Hündürlük 250px */
+        /* LOGO BÖYÜTMƏ - ƏN SON VƏ DƏQİQ VARİANT */
         .hero-logo { 
-            width: 220px; 
-            height: 250px; 
+            width: 280px; 
+            height: 280px; 
             object-fit: contain; 
-            margin-bottom: 25px; 
-            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5)); 
+            margin-bottom: 50px; /* Scale olduğu üçün boşluğu artırdım */
+            filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.6)); 
+            transform: scale(2.2); /* Şəkli 2.2 dəfə daxildən böyüdür */
+            display: block;
+            transition: 0.5s ease;
         }
 
-        .hero h1 { font-size: 2.8rem; margin: 0; color: var(--gold); text-transform: uppercase; }
-        .hero p.slogan { font-size: 1.2rem; font-style: italic; margin: 10px 0; color: #ddd; }
+        .hero h1 { font-size: 2.8rem; margin: 0; color: var(--gold); text-transform: uppercase; position: relative; z-index: 2; }
+        .hero p.slogan { font-size: 1.2rem; font-style: italic; margin: 10px 0; color: #ddd; position: relative; z-index: 2; }
+        .hero p { position: relative; z-index: 2; }
 
         .section-title { text-align: center; margin-top: 40px; font-size: 1.8rem; color: var(--dark-gray); text-transform: uppercase; }
         .section-title span { color: var(--gold); }
@@ -76,11 +81,10 @@
             transition: 0.3s;
         }
         .wa { background: var(--whatsapp); }
-        .cta-gold { background: var(--gold); color: var(--dark-gray) !important; }
+        .cta-gold { background: var(--gold); color: var(--dark-gray) !important; position: relative; z-index: 2; }
 
-        /* HAQQIMIZDA BÖLMƏSİ - STİL QORUNDU */
         .about-section { padding: 60px 5%; background-color: var(--lightgray); text-align: center; }
-        .about-logo { max-width: 180px; margin-bottom: 25px; border-radius: 10px; }
+        .about-logo { max-width: 180px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .about-content { max-width: 850px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; }
         .about-features { display: flex; justify-content: center; gap: 30px; margin-top: 30px; flex-wrap: wrap; }
         .feature-item { border: 1px solid var(--gold); padding: 20px; border-radius: 15px; background: white; min-width: 200px; flex: 1; }
@@ -100,7 +104,7 @@
             nav { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; }
             nav a { font-size: 0.75rem; margin: 5px 10px; }
             .hero h1 { font-size: 1.8rem; }
-            .hero-logo { width: 120px; height: 140px; } /* Mobil üçün bir az kiçik amma yenə uzun */
+            .hero-logo { width: 180px; height: 180px; transform: scale(1.8); margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -213,4 +217,4 @@
     window.onload = fetchProducts;
 </script>
 </body>
-</html>   
+</html>
