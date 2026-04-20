@@ -32,15 +32,24 @@
         nav a:hover { color: var(--gold); }
 
         /* HERO BÖLMƏSİ - YENİ LOQO ÖLÇÜLƏRİ İLƏ */
-        .hero { 
+   .hero { 
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
                         url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200');
             background-size: cover; background-position: center;
-            padding: 80px 20px; text-align: center; color: white;
+            padding: 100px 20px; /* Boşluğu bir az artırdım ki, daha möhtəşəm görünsün */
+            text-align: center; color: white;
             display: flex; flex-direction: column; align-items: center;
         }
-        /* Loqo eni: 160px (bir az böyük), Uzunluğu/Hündürlüyü: 180px (daha çox) */
-        .hero-logo { width: 160px; height: 180px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4)); }
+
+        /* Ölçüləri daha da böyütdüm: En 220px, Hündürlük 250px */
+        .hero-logo { 
+            width: 220px; 
+            height: 250px; 
+            object-fit: contain; 
+            margin-bottom: 25px; 
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5)); 
+        }
+
         .hero h1 { font-size: 2.8rem; margin: 0; color: var(--gold); text-transform: uppercase; }
         .hero p.slogan { font-size: 1.2rem; font-style: italic; margin: 10px 0; color: #ddd; }
 
