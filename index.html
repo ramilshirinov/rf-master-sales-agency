@@ -31,7 +31,7 @@
         nav a { margin-left: 20px; text-decoration: none; color: var(--dark-gray); font-weight: 600; transition: 0.3s; font-size: 0.85rem; text-transform: uppercase; }
         nav a:hover { color: var(--gold); }
 
-        /* HERO BÖLMƏSİNDƏ LOQO İLƏ YENİLƏNMƏ */
+        /* HERO BÖLMƏSİ - YENİ LOQO ÖLÇÜLƏRİ İLƏ */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
                         url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200');
@@ -39,7 +39,8 @@
             padding: 80px 20px; text-align: center; color: white;
             display: flex; flex-direction: column; align-items: center;
         }
-        .hero-logo { width: 120px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
+        /* Loqo eni: 160px (bir az böyük), Uzunluğu/Hündürlüyü: 180px (daha çox) */
+        .hero-logo { width: 160px; height: 180px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4)); }
         .hero h1 { font-size: 2.8rem; margin: 0; color: var(--gold); text-transform: uppercase; }
         .hero p.slogan { font-size: 1.2rem; font-style: italic; margin: 10px 0; color: #ddd; }
 
@@ -68,7 +69,7 @@
         .wa { background: var(--whatsapp); }
         .cta-gold { background: var(--gold); color: var(--dark-gray) !important; }
 
-        /* HAQQIMIZDA BÖLMƏSİNDƏ LOQO */
+        /* HAQQIMIZDA BÖLMƏSİ - STİL QORUNDU */
         .about-section { padding: 60px 5%; background-color: var(--lightgray); text-align: center; }
         .about-logo { max-width: 180px; margin-bottom: 25px; border-radius: 10px; }
         .about-content { max-width: 850px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; }
@@ -90,7 +91,7 @@
             nav { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; }
             nav a { font-size: 0.75rem; margin: 5px 10px; }
             .hero h1 { font-size: 1.8rem; }
-            .hero-logo { width: 90px; }
+            .hero-logo { width: 120px; height: 140px; } /* Mobil üçün bir az kiçik amma yenə uzun */
         }
     </style>
 </head>
