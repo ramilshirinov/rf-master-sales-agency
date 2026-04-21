@@ -25,11 +25,14 @@
         .logo-area b { color: var(--gold); }
         .logo-area span { color: var(--gold); font-size: 11px; display: block; letter-spacing: 1px; }
         nav a { text-decoration: none; color: var(--m-blue); margin-left: 20px; font-size: 12px; font-weight: 800; transition: 0.3s; }
+        nav a:hover { color: var(--gold); }
 
-        .search-container { padding: 25px 8%; background: var(--white); border-bottom: 1px solid #eee; display: flex; justify-content: center; }
+        .search-container { padding: 25px 8%; background: var(--white); border-bottom: 1px solid #eee; display: flex; flex-direction: column; align-items: center; }
         .search-box { width: 100%; max-width: 700px; position: relative; }
         .search-box input { width: 100%; padding: 16px 25px; border-radius: 50px; border: 2px solid #e0e0e0; outline: none; font-size: 16px; transition: 0.3s; }
+        .search-box input:focus { border-color: var(--gold); }
         .search-box i { position: absolute; right: 25px; top: 19px; color: var(--gold); font-size: 20px; }
+        #search-status { margin-top: 10px; font-size: 14px; font-weight: bold; color: var(--az-red); display: none; }
 
         .hero { 
             padding: 120px 20px; text-align: center; color: white;
@@ -65,7 +68,6 @@
         .card-info { padding: 25px; }
         .price { color: var(--m-blue); font-size: 26px; font-weight: 900; }
 
-        /* Elan Yerləşdir Kartı */
         .add-card { border: 2px dashed var(--gold); background: rgba(197,160,89,0.05); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; min-height: 350px; }
         .add-card i { font-size: 50px; color: var(--gold); margin-bottom: 20px; }
         
@@ -79,8 +81,6 @@
         .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); overflow-y: auto; }
         .modal-content { background: white; margin: 4% auto; width: 85%; max-width: 900px; border-radius: 20px; overflow: hidden; position: relative; }
         .close { position: absolute; right: 25px; top: 15px; font-size: 45px; cursor: pointer; color: #333; z-index: 10; }
-
-        /* Admin Panel Düyməsi */
         .admin-secret { opacity: 0.1; cursor: pointer; padding: 10px; display: inline-block; font-size: 10px; color: white; }
     </style>
 </head>
@@ -100,29 +100,33 @@
 
 <div class="search-container">
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Master AI ilə hər şeyi axtarın..." oninput="smartSearch()">
+        <input type="text" id="searchInput" placeholder="Master AI ilə axtarın..." oninput="smartSearch()">
         <i class="fas fa-search"></i>
     </div>
+    <div id="search-status">Master AI: Təəssüf ki, heç bir elan tapılmadı.</div>
 </div>
 
 <section class="hero" id="home">
     <div class="logo-box"><img src="logo.png" alt="RF MASTER" onerror="this.src='https://via.placeholder.com/400x150?text=RF+MASTER'"></div>
-    <h1>SATIŞIN MASTER SƏVİYYƏSİ</h1>
-    <p>Ramil Şirinov & Fərid Quliyev</p>
+    <h1 style="font-weight: 900; letter-spacing: 2px;">SATIŞIN MASTER SƏVİYYƏSİ</h1>
+    <p>Biz məhsul yox, satış edirik!</p>
 </section>
 
 <section class="about-section" id="about">
     <h2>Haqqımızda</h2>
-    <div style="max-width: 800px; margin: 0 auto;">
-        <p><span class="highlight">RF MASTER SALES AGENCY</span> - Ramil Şirinov və Fərid Quliyev tərəfindən qurulan, satışın master səviyyəsini təqdim edən agentlikdir.</p>
-        <p style="font-weight: 900; color: var(--m-blue); margin-top: 20px;">Sizin satış agentliyiniz!</p>
+    <div style="max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 17px; color: #555;">
+        <p><span class="highlight">RF MASTER SALES AGENCY</span> olaraq biz, satışın sadəcə bir mübadilə deyil, bir sənət olduğuna inanırıq. 
+        <span class="highlight">Ramil Şirinov</span> və <span class="highlight">Fərid Quliyev</span> tərəfindən qurulan agentliyimiz, hər bir məhsulu peşəkar marketinq alətləri ilə ən doğru alıcıya çatdırır. 
+        Məqsədimiz satışın master səviyyəsini təqdim etməkdir.</p>
+        <p style="font-weight: 900; color: var(--m-blue); font-size: 20px; margin-top: 20px;">Sizin satış agentliyiniz!</p>
     </div>
 </section>
 
 <img id="category-header-img" src="" alt="">
 
 <div class="category-bar" id="products">
-    <button class="cat-btn active" onclick="loadCategory('emlak', this, 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200')">Əmlak</button>
+    <button class="cat-btn active" onclick="loadCategory('all', this, 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200')">Bütün Məhsullar</button>
+    <button class="cat-btn" onclick="loadCategory('emlak', this, 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200')">Əmlak</button>
     <button class="cat-btn" onclick="loadCategory('elektronika', this, 'https://images.unsplash.com/photo-1498049794561-7780e7231661?q=80&w=1200')">Elektronika</button>
     <button class="cat-btn" onclick="loadCategory('mebel', this, 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200')">Mebel</button>
     <button class="cat-btn" onclick="loadCategory('avtomobil', this, 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200')">Avtomobil</button>
@@ -154,10 +158,10 @@
     <div class="modal-content" style="padding: 30px;">
         <span class="close" onclick="closeAdmin()">&times;</span>
         <h2 style="color: var(--m-blue);">Admin Master AI</h2>
-        <p>Müştəridən gələn mətni bura yapışdırın:</p>
-        <textarea id="adminInput" style="width: 100%; height: 100px; margin-bottom: 15px;" placeholder="Məs: Sumqayıtda 3 otaqlı ev, 85000 AZN, əla təmir..."></textarea>
+        <p>Müştəri mətni:</p>
+        <textarea id="adminInput" style="width: 100%; height: 100px; margin-bottom: 15px;" placeholder="Məs: Sumqayıtda 3 otaqlı ev, 85000 AZN..."></textarea>
         <button onclick="adminProcess()" style="background: var(--m-blue); color: white; padding: 10px 20px; border: none; cursor: pointer;">KODU YARAT</button>
-        <div id="adminResult" style="margin-top: 20px; background: #eee; padding: 15px; font-family: monospace; font-size: 12px; white-space: pre-wrap;"></div>
+        <div id="adminResult" style="margin-top: 20px; background: #eee; padding: 15px; font-family: monospace; font-size: 11px; white-space: pre-wrap; max-height: 200px; overflow: auto;"></div>
     </div>
 </div>
 
@@ -168,9 +172,9 @@
     const REPO = "rf-master-sales-agency";
     let cache = [];
 
-    // Bütün elanları əvvəlcədən yükləyirik ki, axtarış işləsin
     async function preloadAll() {
         const cats = ['emlak', 'elektronika', 'mebel', 'avtomobil'];
+        cache = [];
         for(let cat of cats) {
             try {
                 const res = await fetch(`https://api.github.com/repos/${USER}/${REPO}/contents/content/${cat}`);
@@ -200,10 +204,10 @@
         hImg.src = img; hImg.style.display = 'block';
 
         const grid = document.getElementById('product-grid');
-        grid.innerHTML = "Master AI elanları süzür...";
+        grid.innerHTML = "<p style='grid-column:1/-1; text-align:center;'>Yüklənir...</p>";
 
-        // Cache-dən oxu
-        const filtered = cache.filter(i => i.cat === cat);
+        let filtered = (cat === 'all') ? cache : cache.filter(i => i.cat === cat);
+        
         grid.innerHTML = '';
         filtered.forEach(item => displayItem(item));
         addInsertCard();
@@ -213,10 +217,10 @@
         const grid = document.getElementById('product-grid');
         grid.innerHTML += `
             <div class="card" onclick="openDetails('${item.url}')">
-                <img src="${item.img}" onerror="this.src='https://via.placeholder.com/400x300'">
+                <img src="${item.img}" onerror="this.src='https://via.placeholder.com/400x300?text=RF+Master'">
                 <div class="card-info">
                     <span class="price">₼ ${item.price}</span>
-                    <h3>${item.title}</h3>
+                    <h3 style="margin:10px 0;">${item.title}</h3>
                 </div>
             </div>`;
     }
@@ -235,58 +239,63 @@
     function smartSearch() {
         const q = document.getElementById('searchInput').value.toLowerCase();
         const grid = document.getElementById('product-grid');
-        if(q.length < 2) return;
+        const status = document.getElementById('search-status');
         
-        grid.innerHTML = '';
+        if(q.length < 2) {
+            status.style.display = 'none';
+            loadCategory('all', document.querySelector('.cat-btn'), 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200');
+            return;
+        }
+        
         const results = cache.filter(i => i.title.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q));
         
         if(results.length > 0) {
+            status.style.display = 'none';
+            grid.innerHTML = '';
             results.forEach(displayItem);
         } else {
-            grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:50px;">
-                <h3 style="color:var(--gold)">Master AI nəticə tapa bilmədi...</h3>
-                <p>Amma biz hər şeyi tapa bilərik! WhatsApp-a yazın kömək edək.</p>
-            </div>`;
+            status.style.display = 'block';
+            grid.innerHTML = '';
+            addInsertCard();
         }
     }
 
     async function openDetails(url) {
         const item = cache.find(i => i.url === url);
         document.getElementById('modal-body').innerHTML = `
-            <img src="${item.img}" style="width:100%; max-height:400px; object-fit:cover;">
-            <div style="padding:30px;">
-                <h2 style="color:var(--m-blue)">${item.title}</h2>
-                <p style="font-size:24px; color:var(--gold); font-weight:bold;">₼ ${item.price}</p>
-                <div style="white-space:pre-wrap; color:#555;">${item.desc}</div>
-                <a href="https://wa.me/994506667508?text=Salam Master! ${item.title} haqqında maraqlanıram" 
-                   style="display:block; background:#25d366; color:white; text-align:center; padding:15px; border-radius:10px; text-decoration:none; margin-top:20px; font-weight:bold;">
-                   WHATSAPP İLƏ ƏLAQƏ
+            <img src="${item.img}" style="width:100%; height:400px; object-fit:cover;">
+            <div style="padding:40px;">
+                <h2 style="color:var(--m-blue); margin:0;">${item.title}</h2>
+                <p style="font-size:24px; color:var(--gold); font-weight:800; margin:15px 0;">₼ ${item.price}</p>
+                <div style="line-height:1.6; color:#444;">${item.desc.replace(/\n/g, '<br>')}</div>
+                <a href="https://wa.me/994506667508?text=Salam Master! ${item.title} elanı haqqında maraqlanıram." 
+                   style="display:block; background:#25d366; color:white; text-align:center; padding:18px; border-radius:10px; text-decoration:none; margin-top:30px; font-weight:bold;">
+                   SATIŞ ÜÇÜN MASTERƏ YAZ
                 </a>
             </div>`;
         document.getElementById('detailsModal').style.display = 'block';
     }
 
-    // Admin Master AI Funksiyası
     function openAdmin() { document.getElementById('adminModal').style.display = 'block'; }
     function closeAdmin() { document.getElementById('adminModal').style.display = 'none'; }
     function closeModal() { document.getElementById('detailsModal').style.display = 'none'; }
 
     function adminProcess() {
         const input = document.getElementById('adminInput').value;
-        const title = input.split(',')[0] || "Yeni Elan";
-        const price = input.match(/\d+/)?.[0] || "0";
+        const title = input.split('\n')[0].substring(0, 50) || "Yeni Elan";
+        const price = input.match(/\d+/)?.[0] || "Razılaşma";
         const code = `---
 title: "${title}"
 price: "${price}"
-image: "ŞƏKİL_LİNKİNİ_BURA_QOY"
+image: "ŞƏKİL_LİNKİ"
 ---
 ${input}`;
-        document.getElementById('adminResult').innerText = "GitHub-da yeni .md faylı yaradıb bu kodu içinə atın:\n\n" + code;
+        document.getElementById('adminResult').innerText = code;
     }
 
     window.onload = async () => {
         await preloadAll();
-        loadCategory('emlak', document.querySelector('.cat-btn'), 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200');
+        loadCategory('all', document.querySelector('.cat-btn'), 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200');
     };
 </script>
 </body>
