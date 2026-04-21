@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RF MASTER SALES AGENCY | Millionaire Blue Edition</title>
+    <title>RF MASTER SALES AGENCY | Master Edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
@@ -13,28 +13,27 @@
 
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: #333; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* Azərbaycan Bayrağı Xətti */
         .az-flag-line { height: 4px; width: 100%; display: flex; position: fixed; top: 0; z-index: 2001; }
         .az-blue { flex: 1; background: var(--az-blue); } .az-red { flex: 1; background: var(--az-red); } .az-green { flex: 1; background: var(--az-green); }
 
-        /* Header */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 15px 8%; background: var(--white); position: sticky; top: 4px; z-index: 1000;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
+        /* Logo hissəsində RF qızılı edildi */
         .logo-area { font-weight: 900; font-size: 20px; text-transform: uppercase; color: var(--m-blue); }
+        .logo-area b { color: var(--gold); }
         .logo-area span { color: var(--gold); font-size: 11px; display: block; letter-spacing: 1px; }
         nav a { text-decoration: none; color: var(--m-blue); margin-left: 20px; font-size: 12px; font-weight: 800; transition: 0.3s; }
+        nav a:hover { color: var(--gold); }
 
-        /* YENİ: Axtarış Paneli (Dizayna uyğun) */
         .search-container { padding: 25px 8%; background: var(--white); border-bottom: 1px solid #eee; display: flex; justify-content: center; }
         .search-box { width: 100%; max-width: 700px; position: relative; }
         .search-box input { width: 100%; padding: 16px 25px; border-radius: 50px; border: 2px solid #e0e0e0; outline: none; font-size: 16px; transition: 0.3s; }
         .search-box input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(197,160,89,0.1); }
         .search-box i { position: absolute; right: 25px; top: 19px; color: var(--gold); font-size: 20px; }
 
-        /* Hero */
         .hero { 
             padding: 120px 20px; text-align: center; color: white;
             background: linear-gradient(rgba(0, 35, 102, 0.9), rgba(0, 35, 102, 0.9)), 
@@ -44,15 +43,12 @@
         .logo-box { background: var(--white); padding: 35px; border-radius: 12px; max-width: 420px; margin: 0 auto 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
         .logo-box img { width: 100%; }
 
-        /* Dinamik Kateqoriya Şəkli */
         #category-header-img { width: 100%; height: 280px; object-fit: cover; display: none; border-bottom: 5px solid var(--gold); }
 
-        /* Haqqımızda */
         .about-section { padding: 90px 10%; background: var(--white); text-align: center; }
         .about-section h2 { color: var(--m-blue); font-size: 36px; margin-bottom: 25px; font-weight: 900; }
         .highlight { color: var(--gold); font-weight: bold; }
 
-        /* Kateqoriya Barı */
         .category-bar {
             background: var(--m-blue); padding: 25px 5%; text-align: center;
             position: sticky; top: 72px; z-index: 999; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
@@ -63,32 +59,31 @@
         }
         .cat-btn.active { background: var(--gold); color: var(--m-blue); border-color: var(--gold); }
 
-        /* Grid & Kartlar */
         .container { padding: 80px 8%; min-height: 400px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .card { background: var(--white); border-radius: 18px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.06); transition: 0.4s; cursor: pointer; border: 1px solid #eee; }
+        .card:hover { transform: translateY(-10px); }
         .card img { width: 100%; height: 240px; object-fit: cover; }
         .card-info { padding: 25px; }
         .price { color: var(--m-blue); font-size: 26px; font-weight: 900; }
 
-        /* YENİ: Rəylər Bölməsi (Dizayna uyğun) */
         .reviews-section { padding: 80px 10%; background: #00153d; color: white; text-align: center; border-top: 5px solid var(--gold); }
-        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; margin-bottom: 40px; }
         .review-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; border-left: 5px solid var(--gold); text-align: left; transition: 0.3s; }
-        .review-card:hover { background: rgba(255,255,255,0.1); }
         .review-card h4 { margin: 0 0 10px 0; color: var(--gold); font-size: 18px; }
         .review-card p { font-style: italic; opacity: 0.8; line-height: 1.6; }
+        
+        .rev-btn { background: var(--gold); color: var(--m-blue); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; }
+        .rev-btn:hover { transform: scale(1.05); background: white; }
 
-        /* Footer */
         footer { background: #000c25; color: white; padding: 80px 10% 40px; text-align: center; }
         .footer-logo { background: white; padding: 15px; border-radius: 10px; width: 160px; margin: 0 auto 25px; }
         .wa-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 35px; z-index: 1000; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
 
-        /* Modal */
         .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(5px); overflow-y: auto; }
         .modal-content { background: white; margin: 4% auto; width: 85%; max-width: 900px; border-radius: 20px; overflow: hidden; position: relative; animation: slideIn 0.3s; }
         @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .close { position: absolute; right: 25px; top: 15px; font-size: 45px; cursor: pointer; color: #fff; background: rgba(0,0,0,0.5); width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 45px; cursor: pointer; color: #fff; background: rgba(0,0,0,0.5); width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 10; }
     </style>
 </head>
 <body>
@@ -96,7 +91,7 @@
 <div class="az-flag-line"><div class="az-blue"></div><div class="az-red"></div><div class="az-green"></div></div>
 
 <header>
-    <div class="logo-area">RF MASTER <span>SALES AGENCY</span></div>
+    <div class="logo-area"><b>RF</b> MASTER <span>SALES AGENCY</span></div>
     <nav>
         <a href="#home">ƏSAS</a>
         <a href="#about">HAQQIMIZDA</a>
@@ -108,7 +103,7 @@
 
 <div class="search-container">
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Nə axtarırsınız? (məs: 3 otaqlı ev, iPhone, Mercedes...)" onkeyup="smartSearch()">
+        <input type="text" id="searchInput" placeholder="Master AI ilə axtarın (məs: 3 otaqlı ev, Mercedes...)" onkeyup="smartSearch()">
         <i class="fas fa-search"></i>
     </div>
 </div>
@@ -122,7 +117,10 @@
 <section class="about-section" id="about">
     <h2>Haqqımızda</h2>
     <div style="max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 17px; color: #555;">
-        <p><span class="highlight">RF MASTER SALES AGENCY</span> olaraq biz, satışın sadəcə bir mübadilə deyil, bir sənət olduğuna inanırıq. Ramil və Fərid tərəfindən qurulan agentliyimiz, hər bir məhsulu <span class="highlight">Master</span> səviyyəsində təqdim edir.</p>
+        <p><span class="highlight">RF MASTER SALES AGENCY</span> olaraq biz, satışın sadəcə bir mübadilə deyil, bir sənət olduğuna inanırıq. 
+        <span class="highlight">Ramil Şirinov</span> və <span class="highlight">Fərid Quliyev</span> tərəfindən qurulan agentliyimiz, hər bir məhsulu peşəkar marketinq alətləri ilə ən doğru alıcıya çatdırır. 
+        Məqsədimiz satış prosesini sizin üçün asan və sürətli etməkdir.</p>
+        <p style="font-weight: 900; color: var(--m-blue); font-size: 20px; margin-top: 20px;">Sizin satış agentliyiniz!</p>
     </div>
 </section>
 
@@ -141,7 +139,7 @@
 
 <section class="reviews-section" id="reviews">
     <h2>Müştəri Rəyləri</h2>
-    <div class="review-grid">
+    <div class="review-grid" id="review-container">
         <div class="review-card">
             <h4>Anar M.</h4>
             <p>"Evimin satışını çox qısa müddətdə Master səviyyəsində həll etdilər. Razı qaldım!"</p>
@@ -151,10 +149,11 @@
             <p>"Sumqayıtda belə peşəkar agentlik görməmişdim. Uğurlar sizə!"</p>
         </div>
     </div>
+    <a href="https://wa.me/994506667508?text=Salam! Sayt üçün rəyimi bildirmək istəyirəm: " class="rev-btn">RƏY YAZ</a>
 </section>
 
 <footer>
-    <div class="footer-logo"><img src="logo.png" alt="RF MASTER" style="width:100%"></div>
+    <div class="footer-logo"><img src="logo.png" alt="RF MASTER" style="width:100%" onerror="this.style.display='none'"></div>
     <div class="address"><i class="fas fa-map-marker-alt"></i> Sumqayıt, Azərbaycan</div>
     <p>&copy; 2026 RF MASTER | Sales Agency</p>
 </footer>
@@ -169,7 +168,7 @@
 <script>
     const USER = "ramilshirinov";
     const REPO = "rf-master-sales-agency";
-    let allItems = [];
+    let allItems = []; // Master AI-nın yaddaşı üçün
 
     async function loadCategory(folder, btn, headImg) {
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -180,13 +179,12 @@
         }
         
         const grid = document.getElementById('product-grid');
-        grid.innerHTML = "<p style='grid-column:1/-1; text-align:center;'>Yüklənir...</p>";
+        grid.innerHTML = "<p style='grid-column:1/-1; text-align:center;'>Master AI elanları gətirir...</p>";
 
         try {
             const res = await fetch(`https://api.github.com/repos/${USER}/${REPO}/contents/content/${folder}`);
             const files = await res.json();
             grid.innerHTML = '';
-            allItems = [];
 
             for (const file of files) {
                 if (file.name.endsWith('.md')) {
@@ -197,7 +195,7 @@
                     const img = text.match(/image:\s*"(.*)"/)?.[1] || "https://via.placeholder.com/400x300";
                     
                     const item = { title, price, img, url: file.download_url, content: text, folder };
-                    allItems.push(item);
+                    allItems.push(item); // AI yaddaşına atır
                     displayItem(item);
                 }
             }
@@ -216,13 +214,35 @@
             </div>`;
     }
 
+    // MASTER AI Axtarış Funksiyası
     function smartSearch() {
         const query = document.getElementById('searchInput').value.toLowerCase();
         const grid = document.getElementById('product-grid');
+        
+        if (query.length < 2) {
+            // Əgər axtarış boşdursa, mövcud kateqoriyanı göstər (reset)
+            return; 
+        }
+
         grid.innerHTML = '';
-        const filtered = allItems.filter(i => i.title.toLowerCase().includes(query) || i.content.toLowerCase().includes(query));
-        if(filtered.length > 0) filtered.forEach(displayItem);
-        else grid.innerHTML = `<p style='grid-column:1/-1; text-align:center; padding:40px;'>Master AI: Arzu etdiyiniz elan tapılmadı. WhatsApp ilə birbaşa bizə müraciət edə bilərsiniz.</p>`;
+        // AI bütün qovluqlardakı (yaddaşındakı) elanları süzür
+        const filtered = allItems.filter(i => 
+            i.title.toLowerCase().includes(query) || 
+            i.content.toLowerCase().includes(query)
+        );
+
+        if(filtered.length > 0) {
+            filtered.forEach(displayItem);
+        } else {
+            grid.innerHTML = `
+                <div style='grid-column:1/-1; text-align:center; padding:40px; background:white; border-radius:15px;'>
+                    <i class="fas fa-robot" style="font-size:40px; color:var(--gold); margin-bottom:15px;"></i>
+                    <h3 style="color:var(--m-blue);">Master AI deyir:</h3>
+                    <p>"Təəssüf ki, axtardığınız kriteriyalara uyğun elan tapmadım. Amma narahat olmayın, WhatsApp-dan mənə yazın, mən sizin üçün bazanı yenidən yoxlayım!"</p>
+                    <a href="https://wa.me/994506667508?text=Salam Master AI, mən '${query}' axtarıram, kömək edə bilərsiniz?" 
+                       style="color:var(--gold); font-weight:bold; text-decoration:none;">AI ilə əlaqə saxla <i class="fas fa-arrow-right"></i></a>
+                </div>`;
+        }
     }
 
     async function openDetails(url) {
@@ -239,15 +259,17 @@
                 <h2 style="color:var(--m-blue); margin:0;">${title}</h2>
                 <p style="font-size:24px; color:var(--gold); font-weight:800; margin:15px 0;">₼ ${price}</p>
                 <div style="line-height:1.6; color:#444;">${desc.replace(/\n/g, '<br>')}</div>
-                <a href="https://wa.me/994506667508?text=Salam, ${title} elanı ilə maraqlanıram" 
+                <a href="https://wa.me/994506667508?text=Salam Master! '${title}' (qiyməti: ₼ ${price}) elanı ilə bağlı məlumat almaq istəyirəm." 
                    style="display:block; background:#25d366; color:white; text-align:center; padding:18px; border-radius:10px; text-decoration:none; margin-top:30px; font-weight:bold;">
-                   WHATSAPP İLƏ MASTERƏ YAZ
+                   SATIŞ ÜÇÜN MASTERƏ YAZ
                 </a>
             </div>`;
         document.getElementById('detailsModal').style.display = 'block';
     }
 
     function closeModal() { document.getElementById('detailsModal').style.display = 'none'; }
+    window.onclick = function(event) { if (event.target == document.getElementById('detailsModal')) closeModal(); }
+
     window.onload = () => loadCategory('emlak', document.querySelector('.cat-btn'), 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200');
 </script>
 </body>
