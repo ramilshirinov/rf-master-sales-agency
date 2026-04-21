@@ -6,62 +6,56 @@
     <title>RF MASTER SALES AGENCY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Skrinşotdakı Premium Qara Dizayn */
-        :root { --gold: #c5a059; --bg: #0f0f0f; --card: #1a1a1a; }
-        
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--bg); color: white; scroll-behavior: smooth; }
+        :root { --gold: #c5a059; --dark: #0f0f0f; --card: #161616; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--dark); color: white; scroll-behavior: smooth; }
 
-        /* Naviqasiya Barı */
+        /* Carbon Fiber Fon */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            background-color: #111;
+        }
+
+        /* Header (Skrinşotdakı kimi ağ) */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 10%; background: #ffffff; color: #000; 
+            padding: 15px 8%; background: #ffffff; color: #000; 
+            position: sticky; top: 0; z-index: 1000;
         }
-        .logo-text { font-weight: 800; font-size: 22px; text-transform: uppercase; }
-        .logo-text span { color: var(--gold); display: block; font-size: 12px; margin-top: -5px; }
+        .logo-text { font-weight: 900; font-size: 18px; text-transform: uppercase; line-height: 1; }
+        .logo-text span { color: var(--gold); font-size: 10px; display: block; }
         
-        nav a { 
-            text-decoration: none; color: #333; margin-left: 25px; 
-            font-size: 13px; font-weight: 700; text-transform: uppercase; 
+        nav a { text-decoration: none; color: #333; margin-left: 15px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+
+        /* Kateqoriya Menyusu */
+        .category-bar {
+            background: rgba(255,255,255,0.05); padding: 20px; text-align: center;
+            border-bottom: 1px solid var(--gold); overflow-x: auto; white-space: nowrap;
         }
-
-        /* Hero Bölməsi (Tam skrinşotdakı kimi) */
-        .hero { 
-            height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200');
-            background-size: cover; background-position: center; border-bottom: 3px solid var(--gold);
+        .cat-btn {
+            background: none; border: 1px solid var(--gold); color: var(--gold);
+            padding: 8px 20px; margin: 5px; cursor: pointer; border-radius: 20px;
+            font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 12px;
         }
+        .cat-btn.active, .cat-btn:hover { background: var(--gold); color: black; }
 
-        .hero-logo-box { 
-            background: white; padding: 40px; border-radius: 5px; 
-            max-width: 500px; width: 80%; margin-bottom: 30px;
-        }
-        .hero-logo-box img { width: 100%; }
+        /* Hero */
+        .hero { padding: 60px 20px; text-align: center; border-bottom: 2px solid var(--gold); }
+        .logo-box { background: white; padding: 30px; border-radius: 4px; max-width: 400px; margin: 0 auto 20px; }
+        .logo-box img { width: 100%; }
 
-        .hero h1 { font-size: 38px; color: var(--gold); margin: 0; text-transform: uppercase; letter-spacing: 2px; }
-        .hero p { font-size: 16px; margin: 10px 0; color: #ccc; }
-        .hero-tagline { font-style: italic; color: #eee; margin-top: 20px; font-size: 14px; }
-
-        /* Elanlar Bölməsi */
-        .container { padding: 80px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--card); border-radius: 8px; overflow: hidden; transition: 0.4s; border: 1px solid #333; }
-        .card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .card img { width: 100%; height: 230px; object-fit: cover; }
-        .card-body { padding: 25px; }
-        .price { color: var(--gold); font-size: 26px; font-weight: 800; display: block; margin-bottom: 10px; }
+        /* Grid */
+        .container { padding: 40px 8%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--card); border-radius: 8px; overflow: hidden; border: 1px solid #222; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-info { padding: 20px; }
+        .price { color: var(--gold); font-size: 22px; font-weight: bold; display: block; margin-bottom: 10px; }
         
-        /* Sosial Düymə */
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; background: #25d366; 
-            width: 60px; height: 60px; border-radius: 50%; display: flex; 
-            justify-content: center; align-items: center; color: white; 
-            font-size: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1000;
-        }
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 25px; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 
-        footer { background: #000; padding: 40px 10%; text-align: center; border-top: 1px solid #222; }
-        .social-icons a { color: white; font-size: 24px; margin: 0 15px; transition: 0.3s; }
-        .social-icons a:hover { color: var(--gold); }
-
+        footer { background: #000; padding: 40px; text-align: center; border-top: 1px solid #222; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -69,75 +63,87 @@
 <header>
     <div class="logo-text">RF MASTER <span>SALES AGENCY</span></div>
     <nav>
-        <a href="#home">Əsas</a>
-        <a href="#listings">Məhsullar</a>
-        <a href="#about">Haqqımızda</a>
-        <a href="#contact">Bizimlə Sat</a>
+        <a href="#home">ƏSAS</a>
+        <a href="#products">MƏHSULLAR</a>
+        <a href="https://wa.me/994506667508">BİZİMLƏ SAT</a>
     </nav>
 </header>
 
 <section class="hero" id="home">
-    <div class="hero-logo-box">
-        <img src="logo.png" alt="RF Master Logo" onerror="this.src='https://i.ibb.co/L9nZf4v/logo-placeholder.png'">
+    <div class="logo-box">
+        <img src="logo.png" alt="RF MASTER" onerror="this.src='https://via.placeholder.com/400x150?text=RF+MASTER'">
     </div>
-    <h1>RF MASTER SALES AGENCY</h1>
-    <p>Sizin satış agentliyiniz</p>
-    <p class="hero-tagline">Biz məhsul yox, satış edirik!</p>
+    <h1 style="color:var(--gold); font-size: 24px;">SATIŞIN MASTER SƏVİYYƏSİ</h1>
 </section>
 
-<div class="container" id="listings">
-    <h2 style="text-align:center; color:var(--gold); margin-bottom:50px; text-transform:uppercase;">Aktiv Elanlar</h2>
-    <div class="grid" id="estate-container">
+<div class="category-bar" id="products">
+    <button class="cat-btn active" onclick="loadCategory('emlak', this)">Əmlak Satışı</button>
+    <button class="cat-btn" onclick="loadCategory('elektronika', this)">Elektronika</button>
+    <button class="cat-btn" onclick="loadCategory('mebel', this)">Mebel</button>
+    <button class="cat-btn" onclick="loadCategory('avtomobil', this)">Avtomobil</button>
+    <button class="cat-btn" onclick="loadCategory('diger', this)">Digər</button>
+</div>
+
+<div class="container">
+    <div class="grid" id="product-grid">
         </div>
 </div>
 
-<a href="https://wa.me/994506667508" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/994506667508" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<footer id="contact">
-    <div class="social-icons">
-        <a href="https://www.instagram.com/rfmaster.agency/"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@rfmaster.agency"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/994506667508"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <p style="color: #666; margin-top: 20px;">&copy; 2026 RF Master Sales Agency | By Ramil & Farid</p>
+<footer>
+    <p>&copy; 2026 RF MASTER | By Ramil & Farid</p>
 </footer>
 
 <script>
-    async function loadContent() {
-        const container = document.getElementById('estate-container');
+    const USER = "ramilshirinov";
+    const REPO = "rf-master-sales-agency";
+
+    async function loadCategory(folder, btn) {
+        // Düymə rənglərini dəyişmək
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const grid = document.getElementById('product-grid');
+        grid.innerHTML = "<p style='text-align:center; grid-column:1/-1;'>Yüklənir...</p>";
+
         try {
-            const res = await fetch(`https://api.github.com/repos/ramilshirinov/rf-master-sales-agency/contents/content/real-estate`);
+            const res = await fetch(`https://api.github.com/repos/${USER}/${REPO}/contents/content/${folder}`);
             const files = await res.json();
-            container.innerHTML = '';
+            
+            if (!files.length) throw new Error();
+
+            grid.innerHTML = '';
             for (const file of files) {
                 if (file.name.endsWith('.md')) {
                     const cRes = await fetch(file.download_url);
                     const text = await cRes.text();
-                    const title = text.match(/title:\s*"(.*)"/)?.[1] || "Elan";
-                    const price = text.match(/price:\s*"(.*)"/)?.[1] || "Razılaşma";
-                    const img = text.match(/image:\s*"(.*)"/)?.[1] || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=500";
                     
-                    container.innerHTML += `
+                    const title = text.match(/title:\s*"(.*)"/)?.[1] || "Məhsul";
+                    const price = text.match(/price:\s*"(.*)"/)?.[1] || "Razılaşma";
+                    const img = text.match(/image:\s*"(.*)"/)?.[1] || "https://via.placeholder.com/300x200";
+
+                    grid.innerHTML += `
                         <div class="card">
                             <img src="${img}">
-                            <div class="card-body">
+                            <div class="card-info">
                                 <span class="price">₼ ${price}</span>
-                                <h3 style="margin:0; font-size:20px;">${title}</h3>
-                                <a href="https://wa.me/994506667508?text=Salam, ${title} ilə maraqlanıram" 
-                                   style="display:inline-block; margin-top:15px; color:var(--gold); text-decoration:none; font-weight:bold; border:1px solid var(--gold); padding:8px 15px; border-radius:4px;">
-                                   DETALLAR
+                                <h3 style="margin:0; font-size:18px;">${title}</h3>
+                                <a href="https://wa.me/994506667508?text=Salam, bu məhsulla maraqlanıram: ${title}" 
+                                   style="display:inline-block; margin-top:15px; color:var(--gold); text-decoration:none; font-weight:bold; border:1px solid var(--gold); padding:5px 15px; border-radius:4px; font-size:12px;">
+                                   MARAQLANIRAM
                                 </a>
                             </div>
                         </div>`;
                 }
             }
         } catch (e) {
-            container.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>Hələlik aktiv elan yoxdur.</p>";
+            grid.innerHTML = `<p style='text-align:center; grid-column:1/-1; color:#666;'>Bu bölmədə hələlik məhsul yoxdur.</p>`;
         }
     }
-    loadContent();
+
+    // İlk açılışda Əmlak bölməsini göstər
+    window.onload = () => loadCategory('emlak', document.querySelector('.cat-btn'));
 </script>
 </body>
 </html>
