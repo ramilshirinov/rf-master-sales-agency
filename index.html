@@ -3,100 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RF Master | Daşınmaz Əmlak və Satış Agentliyi</title>
+    <title>RF MASTER Sales Agency | Sizin Satış Agentliyiniz</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --gold: #c5a059; --dark: #1a1a1a; --light: #fdfdfd; --accent: #2c2c2c; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--light); color: var(--dark); scroll-behavior: smooth; }
+        /* Lüks Qaranlıq Mövzu */
+        :root { --gold: #c5a059; --dark: #121212; --accent: #1e1e1e; --white: #ffffff; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--dark); color: var(--white); scroll-behavior: smooth; }
         
         /* Naviqasiya */
-        header { background: white; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo { font-size: 22px; font-weight: 900; color: var(--dark); text-decoration: none; display: flex; align-items: center; }
-        .logo span { color: var(--gold); margin-left: 5px; }
-        nav a { color: var(--dark); text-decoration: none; margin-left: 25px; font-weight: 500; font-size: 14px; transition: 0.3s; }
+        header { background: rgba(18, 18, 18, 0.95); padding: 10px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold); }
+        .logo-box { display: flex; align-items: center; text-decoration: none; }
+        .logo-box img { height: 60px; margin-right: 15px; }
+        .logo-text { font-size: 20px; font-weight: 900; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }
+        nav a { color: var(--white); text-decoration: none; margin-left: 25px; font-weight: 500; font-size: 14px; transition: 0.3s; text-transform: uppercase; }
         nav a:hover { color: var(--gold); }
 
         /* Hero Bölməsi */
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1582408921715-18e7806365c1?q=80&w=1200'); 
-                height: 450px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: 42px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        .hero p { font-size: 18px; opacity: 0.9; max-width: 600px; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200'); 
+                height: 500px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--white); text-align: center; padding: 0 20px; border-bottom: 5px solid var(--gold); }
+        .hero h1 { font-size: 48px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; }
+        .hero p { font-size: 18px; opacity: 0.9; max-width: 600px; color: var(--gold); font-weight: bold; }
+        .hero-subtext { margin-top: 15px; color: #aaa; }
 
         /* Haqqımızda */
-        .about-section { padding: 80px 8%; background: white; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .about-section { padding: 80px 8%; background: var(--accent); display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
         .about-text { flex: 1; min-width: 300px; }
-        .about-text h2 { color: var(--gold); margin-bottom: 20px; }
-        .about-text p { line-height: 1.6; color: #555; }
+        .about-text h2 { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; }
+        .about-text p { line-height: 1.8; color: #ccc; }
 
         /* Elanlar Grid */
-        .container { padding: 60px 8%; }
-        .section-header { text-align: center; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .container { padding: 80px 8%; background: var(--dark); }
+        .section-header { text-align: center; margin-bottom: 50px; text-transform: uppercase; }
+        .section-header h2 span { color: var(--gold); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .card { background: var(--accent); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s; border: 1px solid var(--accent); }
         .card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .card img { width: 100%; height: 230px; object-fit: cover; }
-        .info { padding: 25px; }
-        .price { font-size: 24px; font-weight: 800; color: var(--gold); display: block; margin-bottom: 10px; }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .info { padding: 30px; text-align: left; }
+        .price { font-size: 26px; font-weight: 800; color: var(--gold); display: block; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .card h3 { margin: 0 0 10px; color: var(--white); font-size: 20px; }
+        .card p { color: #aaa; font-size: 14px; margin-bottom: 20px; }
         
-        /* Əlaqə və Sosial Media */
-        footer { background: var(--dark); color: white; padding: 60px 8% 20px; text-align: center; }
-        .social-links { margin-bottom: 30px; }
-        .social-links a { color: white; font-size: 24px; margin: 0 15px; transition: 0.3s; }
-        .social-links a:hover { color: var(--gold); }
-        .footer-info { border-top: 1px solid #333; padding-top: 20px; font-size: 14px; color: #888; }
+        /* Vatsap Butonu */
+        .btn-wa { display: block; background: #25D366; color: white; padding: 15px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; margin-top: 20px; transition: 0.3s; }
+        .btn-wa:hover { opacity: 0.9; }
 
-        .btn-wa { display: inline-block; background: #25D366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        /* Əlaqə və Sosial Media Footeri */
+        footer { background: var(--accent); color: var(--white); padding: 80px 8% 30px; text-align: center; border-top: 2px solid var(--gold); }
+        .social-links { margin-bottom: 40px; }
+        .social-links a { color: var(--white); font-size: 30px; margin: 0 20px; transition: 0.3s; text-decoration: none; }
+        .social-links a:hover { color: var(--gold); transform: scale(1.1); }
+        .social-links span { display: block; color: #888; font-size: 12px; margin-top: 5px; }
+
+        .footer-logo { height: 80px; margin-bottom: 20px; }
+        .footer-info { border-top: 1px solid #333; padding-top: 30px; font-size: 14px; color: #888; margin-top: 30px; }
+        .sub-footer-text { margin-top: 10px; color: #666; font-size: 12px; }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="#" class="logo">RF<span>MASTER</span></a>
+    <a href="#" class="logo-box">
+        <img src="images/logo.png" alt="RF MASTER Sales Agency Logo" onerror="this.style.display='none'"> <div class="logo-text">RF MASTER<span>Sales Agency</span></div>
+    </a>
     <nav>
         <a href="#home">Əsas</a>
-        <a href="#about">Haqqımızda</a>
         <a href="#listings">Elanlar</a>
+        <a href="#about">Haqqımızda</a>
         <a href="#contact">Əlaqə</a>
     </nav>
 </header>
 
 <section class="hero" id="home">
-    <h1>Satışın Master Səviyyəsi</h1>
-    <p>RF Master Sales Agency ilə əmlak və investisiya sahəsində ən doğru qərarları verin.</p>
-</section>
-
-<section class="about-section" id="about">
-    <div class="about-text">
-        <h2>Agentliyimiz Haqqında</h2>
-        <p>RF Master Sales Agency, müştərilərinə həm daşınmaz əmlak, həm də strateji satış sahəsində peşəkar vasitəçilik xidmətləri təklif edir. Bizim məqsədimiz sadəcə vasitəçilik deyil, hər bir müştəri üçün maksimum qazanc və təhlükəsizlik təmin etməkdir.</p>
-        <p>Təcrübəli komandamızla Sumqayıt və Bakı ərazisində ən sərfəli torpaq və mənzil təkliflərini sizə təqdim edirik.</p>
-    </div>
-    <div style="flex:1; min-width:300px;"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=500" style="width:100%; border-radius:15px; box-shadow: 20px 20px var(--gold);"></div>
+    <h1>RF MASTER</h1>
+    <p>Sales Agency | Sizin Satış Agentliyiniz</p>
+    <div class="hero-subtext">Hər sahədə satışın Master səviyyəsi.</div>
 </section>
 
 <div class="container" id="listings">
     <div class="section-header">
-        <h2>Aktiv <span>Elanlar</span></h2>
-        <p>Sizin üçün seçdiyimiz eksklüziv təkliflər</p>
+        <h2>Aktiv <span>Əmlak Elanları</span></h2>
+        <p>Eksklüziv təkliflər</p>
     </div>
     <div class="grid" id="estate-container">
         </div>
 </div>
 
+<section class="about-section" id="about">
+    <div class="about-text">
+        <h2>RF MASTER Haqqında</h2>
+        <p>RF MASTER Sales Agency, Ramil və Fərid tərəfindən qurulmuş, müştərilərinə həm daşınmaz əmlak, həm də strateji satış sahəsində peşəkar vasitəçilik xidmətləri təklif edən agentlikdir.</p>
+        <p>Biz sadəcə vasitəçilik etmirik, hər bir müştəri üçün maksimum qazanc və təhlükəsizlik təmin edirik. Sumqayıt və Bakı ərazisində ən sərfəli torpaq və mənzil təkliflərini sizə təqdim edirik.</p>
+    </div>
+</section>
+
 <footer id="contact">
+    <img src="images/logo.png" alt="RF MASTER" class="footer-logo" onerror="this.style.display='none'">
     <h3>BİZİMLƏ ƏLAQƏ</h3>
-    <p>Suallarınız var? Bizə yazın və ya zəng edin:</p>
     <p><i class="fas fa-phone"></i> +994 50 666 75 08</p>
     
     <div class="social-links">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/994506667508"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/rfmaster.agency/" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span>@rfmaster.agency</span>
+        </a>
+        <a href="https://www.tiktok.com/@rfmaster.agency" target="_blank">
+            <i class="fab fa-tiktok"></i>
+            <span>@rfmaster.agency</span>
+        </a>
+        <a href="https://wa.me/994506667508" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>Vatsap</span>
+        </a>
     </div>
 
     <div class="footer-info">
-        &copy; 2026 RF Master Sales Agency. Bütün hüquqlar qorunur.
+        &copy; 2026 RF MASTER Sales Agency. Bütün hüquqlar qorunur.
+        <div class="sub-footer-text">By Ramil & Farid</div>
     </div>
 </footer>
 
@@ -106,6 +129,7 @@
 
     async function loadEstates() {
         const container = document.getElementById('estate-container');
+        container.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color: #888;'>Elanlar yüklənir...</p>";
         try {
             const res = await fetch(`https://api.github.com/repos/${USER}/${REPO}/contents/content/real-estate`);
             const files = await res.json();
@@ -116,27 +140,27 @@
                     const cRes = await fetch(file.download_url);
                     const text = await cRes.text();
                     
-                    const title = text.match(/title:\s*"(.*)"/)?.[1] || "Əmlak";
+                    const title = text.match(/title:\s*"(.*)"/)?.[1] || "Əmlak Elanı";
                     const price = text.match(/price:\s*"(.*)"/)?.[1] || "Razılaşma";
                     const loc = text.match(/location:\s*"(.*)"/)?.[1] || "Azərbaycan";
                     const img = text.match(/image:\s*"(.*)"/)?.[1] || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=500";
 
                     container.innerHTML += `
                         <div class="card">
-                            <img src="${img}" alt="${title}">
+                            <img src="${img}" alt="${title}" onerror="this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=500'">
                             <div class="info">
                                 <span class="price">₼ ${price}</span>
                                 <h3>${title}</h3>
                                 <p><i class="fas fa-map-marker"></i> ${loc}</p>
                                 <a href="https://wa.me/994506667508?text=Salam, bu elanla bağlı məlumat almaq istəyirəm: ${title}" class="btn-wa">
-                                    Vatsapla Yaz
+                                    <i class="fab fa-whatsapp"></i> Vatsapla Yaz
                                 </a>
                             </div>
                         </div>`;
                 }
             }
         } catch (e) {
-            container.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>Hazırda aktiv elan tapılmadı. Zəhmət olmasa content/real-estate qovluğunu yoxlayın.</p>";
+            container.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color: #888;'>Hazırda aktiv elan tapılmadı. Zəhmət olmasa content/real-estate qovluğunu yoxlayın.</p>";
         }
     }
     window.onload = loadEstates;
